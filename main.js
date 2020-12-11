@@ -1,11 +1,15 @@
+// Global Elements Variables
 let prevButton = document.querySelector(".prev");
 let nextButton = document.querySelector(".next");
 const allDots = document.querySelectorAll(".dot");
 
+// Iterate the allDots Nodelist to add event listeners when clicked
 allDots.forEach((dot, index) => {
   dot.addEventListener("click", currentSlide.bind(this, ++index));
 });
 
+// Event listeners to the prev and next buttons
+// Using the bind method to add arguments to the plusSlides function
 prevButton.addEventListener("click", plusSlides.bind(this, -1));
 nextButton.addEventListener("click", plusSlides.bind(this, 1));
 
