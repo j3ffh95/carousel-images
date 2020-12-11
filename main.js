@@ -1,6 +1,13 @@
 let prevButton = document.querySelector(".prev");
+let nextButton = document.querySelector(".next");
+const allDots = document.querySelectorAll(".dot");
+
+allDots.forEach((dot, index) => {
+  dot.addEventListener("click", currentSlide.bind(this, ++index));
+});
 
 prevButton.addEventListener("click", plusSlides.bind(this, -1));
+nextButton.addEventListener("click", plusSlides.bind(this, 1));
 
 var slideIndex = 1;
 showSlides(slideIndex);
