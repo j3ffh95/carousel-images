@@ -12,11 +12,19 @@ img {
   vertical-align: middle;
 }
 
+.main-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 /* Slideshow container */
 .slideshow-container {
   max-width: 1000px;
   position: relative;
-  margin: auto;
+  margin-bottom: 1rem;
 }
 
 /* Next & previous buttons */
