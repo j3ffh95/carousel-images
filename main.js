@@ -1,3 +1,7 @@
+let prevButton = document.querySelector(".prev");
+
+prevButton.addEventListener("click", plusSlides.bind(this, -1));
+
 var slideIndex = 1;
 showSlides(slideIndex);
 
