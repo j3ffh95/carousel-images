@@ -13,34 +13,49 @@ allDots.forEach((dot, index) => {
 prevButton.addEventListener("click", plusSlides.bind(this, -1));
 nextButton.addEventListener("click", plusSlides.bind(this, 1));
 
-var slideIndex = 1;
-showSlides(slideIndex);
+// Assign a 1 to a variable slideIndex
+let slideIndex = 1;
+// We call the function of showSlides with the argument of slideIndex which is 1
+// showSlides(slideIndex);
+setInterval(() => {
+  showSlides(slideIndex);
+}, 200);
 
-function plusSlides(n) {
-  showSlides((slideIndex += n));
+// This function takes in an argument and calls the showSlides function, adding the slideIndex with the argument passed
+// so if is 1 (for next) then the argument will be 2, so showSlides(2)
+// if is -1 (for prev) then the arg will be 0
+function plusSlides(num) {
+  showSlides((slideIndex += num));
 }
 
-function currentSlide(n) {
-  showSlides((slideIndex = n));
+// This function also takes in a arg and calls showSlides func, but in the param we assign slideIndex with current arg
+function currentSlide(num) {
+  showSlides((slideIndex = num));
 }
 
+// This function is the one with the logic to show each slide
 function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
+  let slides = document.querySelectorAll(".mySlides");
+  let dots = document.querySelectorAll(".dot");
   // console.log(slides);
+  // If the number of the slide passed in is greater than the number of slides there are then reassign the index to 1 in order to show the first one again.
   if (n > slides.length) {
     slideIndex = 1;
   }
+  // If the SlideNumber is less than 1 then reassign the slideIndex to the last slide.
   if (n < 1) {
     slideIndex = slides.length;
   }
-  for (i = 0; i < slides.length; i++) {
+
+  // We iterate through the slides node list to change its display to none
+  for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
-  for (i = 0; i < dots.length; i++) {
+  // Iteration through the dot list to replace the class of active to nothing
+  for (let i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
+
   slides[slideIndex - 1].style.display = "block";
   dots[slideIndex - 1].className += " active";
 }
